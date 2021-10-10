@@ -8,7 +8,7 @@ function Login() {
 		<div className='login'>
 			{/* Logo */}
 			<Fade bottom delay={200}>
-				<img src={(process.PUBLIC_URL, "Skutify.png")} alt='Skutify' />
+				<img src={(process.PUBLIC_URL, "logo.png")} alt='Skutify' />
 			</Fade>
 			{/* Login button */}
 			<Fade bottom delay={350}>

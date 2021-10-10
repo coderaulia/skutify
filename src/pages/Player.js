@@ -1,10 +1,22 @@
 import React from "react";
+import "./player.css";
 import Fade from "react-reveal/Fade";
+import Sidebar from "../parts/Sidebar";
+import Body from "../parts/Body";
+import Footer from "../parts/Footer";
 
 function Player() {
 	return (
-		<div>
-			<h1>Logged in!</h1>
+		<div className='player'>
+			<div className='player__body'>
+				{/* sidebar */}
+				<Sidebar />
+
+				{/* body */}
+				<Body />
+			</div>
+			{/* footer */}
+			<Footer />
 		</div>
 	);
 }
