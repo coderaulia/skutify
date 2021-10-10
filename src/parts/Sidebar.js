@@ -4,8 +4,10 @@ import SidebarOption from "./SidebarOption/SidebarOption";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
+import { useDataLayerValue } from "../DataLayer";
 
 function Sidebar() {
+	const [{ playlists }, dispatch] = useDataLayerValue();
 	return (
 		<div className='sidebar'>
 			<img
@@ -20,9 +22,11 @@ function Sidebar() {
 			<br />
 			<strong className='sidebar__title'>Playlists</strong>
 			<hr />
-			<SidebarOption title='Hip Hop' />
-			<SidebarOption title='Rocks' />
-			<SidebarOption title='Jazz' />
+
+			{/* looping playlists */}
+			{playlists?.items?.map((playlist) => (
+				<SidebarOption title={playlist.name} />
+			))}
 		</div>
 	);
 }
