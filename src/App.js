@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Login from "./pages/Login";
 import Player from "./pages/Player";
 import { getTokenFromUrl } from "./spotify";
@@ -40,6 +40,18 @@ function App() {
 				}),
 			]);
 
+			spotify.getMyTopArtists().then((response) =>
+				dispatch({
+					type: "SET_TOP_ARTISTS",
+					top_artists: response,
+				})
+			);
+
+			dispatch({
+				type: "SET_SPOTIFY",
+				spotify: spotify,
+			});
+
 			spotify.getPlaylist("37i9dQZEVXcOtIiENcYEp6").then((response) =>
 				dispatch({
 					type: "SET_DISCOVER_WEEKLY",
@@ -47,9 +59,13 @@ function App() {
 				})
 			);
 		}
-	}, []);
+	}, [token, dispatch]);
 
-	return <div className='app'>{token ? <Player /> : <Login />}</div>;
+	return (
+		<div className='app'>
+			{token ? <Player spotify={spotify} /> : <Login />}
+		</div>
+	);
 }
 
 export default App;
