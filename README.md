@@ -7,6 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 -  [x] Open developer.spotify.com.
 -  [x] Create new app.
 -  [x] Setting the redirect URL to localhost:3000.
+-  [x] All documentation about Spotify here: https://developer.spotify.com/documentation/web-playback-sdk/quick-start/
 
 ## Available Scripts
 
